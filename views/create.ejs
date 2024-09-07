@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+<div class="content px-5 my-5">
+
+
+<% if(locals.postId){ %>
+    <h1>Edit Post</h1>
+    <form action="/update/<%= postId %>" method="POST">
+        <div style="width: 100%;" class="mb-2">
+            <input name="title" type="text" placeholder="Title" value="<%= title %>">
+        </div>
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Content"><%= content %></textarea>        
+        <input class="ml-2" type="submit" value="Update" />
+    </form>
+<% } else{ %>
+    <h1>Create Post</h1>
+    <form action="/save" method="POST">
+        <div style="width: 100%;" class="mb-2">
+            <input name="title" type="text" placeholder="Title">
+        </div>
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Content"></textarea>        
+        <input class="ml-2" type="submit" value="Post" />
+    </form>
+<% } %>
+
+</div>
+
+<%- include("partials/footer.ejs") %>
+<link rel="stylesheet" href="styles.css">
